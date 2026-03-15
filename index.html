@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ncapayi Labour Relations Outsourcing | Mount Ayliff</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --orange: #e07820;
+    --orange-dark: #c06010;
+    --orange-light: #f09040;
+    --dark: #2a2a2a;
+    --darker: #1a1a1a;
+    --mid: #444;
+    --light: #f5f5f3;
+    --white: #ffffff;
+    --border: #e8e8e4;
+    --muted: #777;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    color: var(--dark);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--darker);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+    border-bottom: 3px solid var(--orange);
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .nav-logo span { color: var(--orange); }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--orange); }
+
+  .nav-cta {
+    background: var(--orange) !important;
+    color: #fff !important;
+    padding: 8px 20px;
+    border-radius: 2px;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--darker);
+    display: flex; align-items: center;
+    padding: 120px 5% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 45%; height: 100%;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 30px,
+      rgba(224,120,32,0.03) 30px,
+      rgba(224,120,32,0.03) 31px
+    );
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--orange), var(--orange-light), var(--orange));
+  }
+
+  .hero-content { max-width: 680px; animation: fadeUp 0.8s ease both; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(224,120,32,0.15);
+    border: 1px solid rgba(224,120,32,0.3);
+    border-radius: 2px;
+    padding: 6px 16px;
+    margin-bottom: 2rem;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange-light);
+    font-weight: 400;
+  }
+
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(44px, 7vw, 80px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+  }
+
+  .hero h1 span { color: var(--orange); display: block; }
+
+  .hero p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.55);
+    max-width: 500px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--orange);
+    color: #fff;
+    padding: 14px 32px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background 0.2s;
+    font-family: 'Barlow', sans-serif;
+  }
+  .btn-primary:hover { background: var(--orange-light); }
+
+  .btn-secondary {
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.7);
+    padding: 14px 32px;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: all 0.2s;
+    font-family: 'Barlow', sans-serif;
+  }
+  .btn-secondary:hover { border-color: var(--orange); color: var(--orange); }
+
+  .hero-stats {
+    display: flex; gap: 2.5rem; flex-wrap: wrap;
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+
+  .stat-number {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--orange);
+    display: block;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* ABOUT */
+  .about {
+    padding: 100px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .section-tag {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1rem;
+    display: block;
+    font-weight: 500;
+  }
+
+  .about h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  .about p {
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 1rem;
+    font-size: 15px;
+  }
+
+  .about-visual {
+    background: var(--darker);
+    border-radius: 4px;
+    height: 400px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-left: 4px solid var(--orange);
+  }
+
+  .about-visual::after {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 50%; height: 100%;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      rgba(224,120,32,0.04) 20px,
+      rgba(224,120,32,0.04) 21px
+    );
+  }
+
+  .about-visual-inner {
+    text-align: center; z-index: 1; padding: 2rem;
+  }
+
+  .about-visual-inner .big-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 80px;
+    font-weight: 700;
+    color: rgba(224,120,32,0.12);
+    line-height: 1;
+    display: block;
+  }
+
+  .about-visual-inner p {
+    color: rgba(255,255,255,0.25);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  /* SERVICES */
+  .services { background: var(--light); padding: 100px 5%; }
+  .services-inner { max-width: 1200px; margin: 0 auto; }
+
+  .services-header { text-align: center; margin-bottom: 4rem; }
+
+  .services-header h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+
+  .services-header p { color: var(--muted); font-size: 15px; max-width: 500px; margin: 0 auto; line-height: 1.7; }
+
+  /* Two column service layout */
+  .services-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .service-col {
+    background: var(--white);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .service-col-header {
+    background: var(--orange);
+    padding: 1rem 1.5rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+  }
+
+  .service-col-body { padding: 1.5rem; }
+
+  .service-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--dark);
+  }
+
+  .service-item:last-child { border-bottom: none; }
+
+  .service-check {
+    width: 18px; height: 18px;
+    background: var(--orange);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .service-check::after {
+    content: '';
+    width: 5px; height: 9px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(45deg) translate(-1px, -1px);
+    display: block;
+  }
+
+  /* EAP & TRAINING ROW */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    border-top: 3px solid var(--orange);
+    transition: box-shadow 0.2s;
+  }
+
+  .service-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+
+  .service-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+    color: var(--darker);
+  }
+
+  .service-card p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+  /* PRICING */
+  .pricing { padding: 100px 5%; background: var(--darker); }
+  .pricing-inner { max-width: 1100px; margin: 0 auto; }
+
+  .pricing-header { text-align: center; margin-bottom: 4rem; }
+
+  .pricing-header h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+  }
+
+  .pricing-header p { color: rgba(255,255,255,0.4); font-size: 14px; }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .pricing-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .pricing-card.featured {
+    background: var(--orange);
+    border-color: var(--orange);
+    transform: translateY(-8px);
+  }
+
+  .pricing-card.featured::before {
+    content: 'Most Popular';
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--orange-light);
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .pricing-plan {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 1rem;
+  }
+
+  .pricing-card.featured .pricing-plan { color: rgba(255,255,255,0.8); }
+
+  .pricing-price {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .pricing-period { font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 2rem; }
+  .pricing-card.featured .pricing-period { color: rgba(255,255,255,0.7); }
+
+  .pricing-features { text-align: left; margin-bottom: 2rem; }
+
+  .pricing-feature {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .pricing-card.featured .pricing-feature { color: rgba(255,255,255,0.9); border-bottom-color: rgba(255,255,255,0.15); }
+  .pricing-feature:last-child { border-bottom: none; }
+
+  .pricing-tick { color: var(--orange); font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .pricing-card.featured .pricing-tick { color: #fff; }
+
+  .pricing-btn {
+    display: block;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: all 0.2s;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+  }
+
+  .pricing-btn:hover { border-color: var(--orange); color: var(--orange); }
+  .pricing-card.featured .pricing-btn { background: #fff; color: var(--orange); border-color: #fff; font-weight: 600; }
+
+  .pricing-guarantee {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    color: rgba(255,255,255,0.4);
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  .pricing-guarantee strong { color: var(--orange); }
+
+  /* CONTACT */
+  .contact { background: var(--light); padding: 100px 5%; }
+  .contact-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+
+  .contact h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+  }
+
+  .contact > .contact-inner > div > p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-detail {
+    display: flex; gap: 1rem; align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-icon {
+    width: 40px; height: 40px;
+    background: var(--orange);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-icon svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  .contact-detail-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; font-weight: 500; }
+  .contact-detail-value { font-size: 14px; color: var(--dark); font-weight: 400; }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 12px 16px;
+    color: var(--dark);
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus { border-color: var(--orange); }
+
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .form-submit {
+    background: var(--orange);
+    color: #fff;
+    border: none;
+    padding: 14px 32px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s;
+    align-self: flex-start;
+  }
+
+  .form-submit:hover { background: var(--orange-light); }
+
+  /* FOOTER */
+  footer {
+    background: var(--darker);
+    padding: 2rem 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+    border-top: 3px solid var(--orange);
+  }
+
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.5px;
+  }
+
+  .footer-logo span { color: var(--orange); }
+  footer p { font-size: 12px; color: rgba(255,255,255,0.2); }
+
+  /* SIYIO LABS BANNER */
+  .built-by {
+    background: #0a0a0a;
+    padding: 1.25rem 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem; position: relative;
+  }
+
+  .built-by::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, #00e5a0, #00b8ff, #7b5ea7);
+  }
+
+  .built-by-brand { display: flex; flex-direction: column; gap: 2px; }
+  .built-by-name { font-size: 15px; font-weight: 500; color: #fff; font-family: 'Barlow', sans-serif; }
+  .built-by-title { font-size: 10px; color: #00e5a0; letter-spacing: 2px; text-transform: uppercase; }
+  .built-by-contacts { display: flex; gap: 2rem; flex-wrap: wrap; align-items: center; }
+  .built-by-item { display: flex; flex-direction: column; gap: 1px; }
+  .built-by-label { font-size: 9px; color: rgba(255,255,255,0.3); letter-spacing: 1.5px; text-transform: uppercase; }
+  .built-by-value { font-size: 12px; color: rgba(255,255,255,0.7); font-family: 'Barlow', sans-serif; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .about { grid-template-columns: 1fr; gap: 2rem; }
+    .about-visual { height: 200px; }
+    .services-split { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-card.featured { transform: none; }
+    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Ncapayi <span>Labour Relations</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-badge">Labour Relations Outsourcing</span>
+    <h1>Your Partner in <span>Workplace Success</span></h1>
+    <p>Ncapayi Labour Relations Outsourcing provides expert HR and labour relations services to South African businesses — keeping you compliant, protected, and productive.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get in Touch</a>
+      <a href="#pricing" class="btn-secondary">View Pricing</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span class="stat-number">3+</span>
+        <span class="stat-label">Service Plans</span>
+      </div>
+      <div>
+        <span class="stat-number">30</span>
+        <span class="stat-label">Day Money-Back</span>
+      </div>
+      <div>
+        <span class="stat-number">100%</span>
+        <span class="stat-label">SA Focused</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div>
+    <span class="section-tag">Who We Are</span>
+    <h2>Expert Labour Relations for South African Businesses</h2>
+    <p>Ncapayi Labour Relations Outsourcing is based in Mount Ayliff, Eastern Cape — providing specialist labour relations and HR support services to businesses across South Africa.</p>
+    <p>We take the complexity out of managing workplace relations, so you can focus on running your business. From CCMA representation to employee wellness programs, we handle it all.</p>
+    <p>Whether you are an employer navigating disciplinary matters or an employee facing an unfair dismissal — Ncapayi is on your side.</p>
+  </div>
+  <div class="about-visual">
+    <div class="about-visual-inner">
+      <span class="big-text">LRO</span>
+      <p>Labour Relations Outsourcing</p>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <span class="section-tag">What We Do</span>
+      <h2>Our Services</h2>
+      <p>Comprehensive labour relations and HR solutions tailored for South African workplaces.</p>
+    </div>
+
+    <div class="services-split">
+      <div class="service-col">
+        <div class="service-col-header">For Employers</div>
+        <div class="service-col-body">
+          <div class="service-item"><div class="service-check"></div>Labour Law Consulting</div>
+          <div class="service-item"><div class="service-check"></div>Disciplinary Hearings</div>
+          <div class="service-item"><div class="service-check"></div>CCMA & Bargaining Council Representation</div>
+          <div class="service-item"><div class="service-check"></div>Retrenchments & Dismissals</div>
+          <div class="service-item"><div class="service-check"></div>Employment Contracts Drafting</div>
+          <div class="service-item"><div class="service-check"></div>Strike Management</div>
+          <div class="service-item"><div class="service-check"></div>HR Policies & Compliance</div>
+          <div class="service-item"><div class="service-check"></div>Workplace Investigations</div>
+        </div>
+      </div>
+      <div class="service-col">
+        <div class="service-col-header">For Employees</div>
+        <div class="service-col-body">
+          <div class="service-item"><div class="service-check"></div>Labour Law Advice</div>
+          <div class="service-item"><div class="service-check"></div>Unfair Dismissal Claims</div>
+          <div class="service-item"><div class="service-check"></div>CCMA Representation</div>
+          <div class="service-item"><div class="service-check"></div>Workplace Grievances</div>
+          <div class="service-item"><div class="service-check"></div>Retrenchment Assistance</div>
+          <div class="service-item"><div class="service-check"></div>Disciplinary Hearings Representation</div>
+          <div class="service-item"><div class="service-check"></div>Unfair Labour Practice Cases</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Employee Assistance (EAP)</h3>
+        <p>Confidential counselling, mental health support, and substance abuse assistance to promote employee well-being.</p>
+      </div>
+      <div class="service-card">
+        <h3>Skills Development Training</h3>
+        <p>Customised workshops, leadership training, and compliance programmes designed to boost your team's productivity.</p>
+      </div>
+      <div class="service-card">
+        <h3>HR Support Services</h3>
+        <p>Recruitment & onboarding, payroll administration, and policy & compliance management for your business.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-header">
+      <span class="section-tag">Plans & Pricing</span>
+      <h2>Tailored for Your Workplace</h2>
+      <p>Affordable monthly plans for South African businesses of all sizes.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-plan">Basic Plan</div>
+        <div class="pricing-price">R4,900</div>
+        <div class="pricing-period">per month</div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pricing-tick">✓</span>CCMA Representation</div>
+          <div class="pricing-feature"><span class="pricing-tick">✓</span>Grievance Handling</div>
+          <div class="pricing-feature"><span class="pricing-tick">✓</span>1 Employee Wellness Session/month</div>
+          <div class="pricing-feature"><span class="pricing-tick">✓</span>Monthly Labour Relations Advice & Reports</div>
+        </div>
+        <a href="#contact" class="pricing-btn">Get Started</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-plan">Professional Plan</div>
+        <div class="pricing-price">R8,900</div>
+        <div class="pricing-period">per month</div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pricing-tick">✓</span>CCMA Representation</div>
+          <div class="pricing-feature"><span class="pricing-tick">✓</span>Disciplinary Hearings</div>
+          <div class="pricing-feature"><span class="pricing-tick">✓</span>Compliance Training Workshop</div>
+          <div class="pricing-feature"><span class="pricing-tick">✓</span>2 Employee Wellness Sessions/month</div>
+        </div>
+        <a href="#contact" class="pricing-btn">Get Started</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-plan">Premium Plan</div>
+        <div class="pricing-price">R13,900</div>
+        <div class="pricing-period">per month</div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pricing-tick">✓</span>Collective Bargaining</div>
+          <div class="pricing-feature"><span class="pricing-tick">✓</span>Leadership Training Workshop</div>
+          <div class="pricing-feature"><span class="pricing-tick">✓</span>Recruitment & HR Support</div>
+          <div class="pricing-feature"><span class="pricing-tick">✓</span>4 Employee Wellness Sessions/month</div>
+        </div>
+        <a href="#contact" class="pricing-btn">Get Started</a>
+      </div>
+    </div>
+    <div class="pricing-guarantee">
+      <strong>No Risk!</strong> &nbsp;30-Day Money-Back Guarantee on all plans
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <span class="section-tag">Get in Touch</span>
+      <h2>Contact Us Today</h2>
+      <p>Ready to take the complexity out of your workplace relations? Reach out and we'll get back to you within 24 hours.</p>
+      <div class="contact-detail">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="contact-detail-label">Address</div>
+          <div class="contact-detail-value">1205 Chitwa Village, Mount Ayliff, 4735</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div>
+          <div class="contact-detail-label">Phone</div>
+          <div class="contact-detail-value">068 992 0016</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="contact-detail-label">Email</div>
+          <div class="contact-detail-value">bm@ncapayilabourrelations.co.za</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <div>
+          <div class="contact-detail-label">Website</div>
+          <div class="contact-detail-value">www.ncapayilabourrelations.co.za</div>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="return false;">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Your full name">
+      </div>
+      <div class="form-group">
+        <label>Company Name</label>
+        <input type="text" placeholder="Your company">
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+27 00 000 0000">
+      </div>
+      <div class="form-group">
+        <label>I am a</label>
+        <select>
+          <option value="">Select one</option>
+          <option>Employer</option>
+          <option>Employee</option>
+          <option>HR Manager</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Service Needed</label>
+        <select>
+          <option value="">Select a service</option>
+          <option>Labour Relations Outsourcing</option>
+          <option>CCMA Representation</option>
+          <option>Disciplinary Hearing</option>
+          <option>Employee Assistance (EAP)</option>
+          <option>Skills Development Training</option>
+          <option>HR Support Services</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Briefly describe what you need help with..."></textarea>
+      </div>
+      <button class="form-submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Ncapayi <span>Labour Relations</span></div>
+  <p>© 2025 Ncapayi Labour Relations Outsourcing. All rights reserved.</p>
+  <p>Mount Ayliff, Eastern Cape, South Africa</p>
+</footer>
+
+<div class="built-by">
+  <div class="built-by-brand">
+    <span class="built-by-name">Siyio Labs</span>
+    <span class="built-by-title">Web Designer</span>
+  </div>
+  <div class="built-by-contacts">
+    <div class="built-by-item">
+      <span class="built-by-label">Email</span>
+      <span class="built-by-value">siyiolabs@outlook.com</span>
+    </div>
+    <div class="built-by-item">
+      <span class="built-by-label">WhatsApp</span>
+      <span class="built-by-value">+27 84 084 9230</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
